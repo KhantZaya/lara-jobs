@@ -20,7 +20,7 @@ Route::get('/jobs', function () {
     $jobs = Job::with('employer')->simplePaginate(10);
     // $jobs = Job::with('employer')->cursorPaginate(3);
 
-    return view('jobs', ['jobs' => $jobs]);
+    return view('job.index', ['jobs' => $jobs]);
 });
 
 Route::get('/jobs/{id}', function ($id) {
@@ -28,7 +28,7 @@ Route::get('/jobs/{id}', function ($id) {
     if (!$job) {
         abort(404);
     }
-    return view('job', ['job' => $job]);
+    return view('job.show', ['job' => $job]);
 });
 
 Route::get('/contact', function () {
