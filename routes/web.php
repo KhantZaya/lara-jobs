@@ -23,6 +23,21 @@ Route::get('/jobs', function () {
     return view('job.index', ['jobs' => $jobs]);
 });
 
+Route::post('/jobs', function () {
+    Job::create([
+        'title' => request('job_title'),
+        'salary' => request('salary'),
+        'job_description' => request('job_description'),
+        'employer_id' => 1//request('employer_id'),
+
+    ]);
+    return redirect('/jobs');
+});
+
+Route::get('/jobs/create', function () {
+    return view('job.create');
+});
+
 Route::get('/jobs/{id}', function ($id) {
     $job = Job::find($id);
     if (!$job) {
