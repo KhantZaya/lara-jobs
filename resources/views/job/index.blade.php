@@ -8,7 +8,7 @@
                 {{-- <a  rel="noopener noreferrer" class="hover:underline">
                     <strong>{{ $job['title'] }}</strong>, hired by {{ $job['company'] }}
                 </a> --}}
-                <div class="mb-6 w-full bg-neutral-primary border border-default rounded-base shadow-xs">
+                <div class="mb-6 w-full bg-neutral-primary border border-default rounded-xl shadow-xs  hover:border-indigo-600 hover:border-2">
 
                     <div class=" p-4 rounded-b-base md:p-8" id="about" role="tabpanel" aria-labelledby="about-tab">
                         <h2 class="mb-2 text-2xl font-semibold tracking-tight text-heading">{{ $job['title'] }}</h2>
