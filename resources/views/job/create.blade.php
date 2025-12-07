@@ -13,33 +13,31 @@
 
                 <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <!-- Job Title -->
-                    <div class="sm:col-span-4">
+                    <x-form-field>
                         <x-form-label for="job-title">Job Title</x-form-label>
                         <x-form-input id="job-title" name="job_title" type="text" placeholder="Product Designer" />
 
                         <x-form-error name="job_title" />
-                    </div>
+                    </x-form-field>
 
                     <!-- Job Salary -->
-                    <div class="sm:col-span-4">
+                    <x-form-field>
                         <x-form-label for="salary">Salary</x-form-label>
                         <x-form-input id="salary" name="salary" type="text" placeholder="180,000 Per Year" />
 
                         <x-form-error name="salary" />
 
-                    </div>
+                    </x-form-field>
 
                     <!-- Description -->
-                    <div class="col-span-full">
+                    <x-form-field>
                         <x-form-label for="job-description">Description</x-form-label>
-                        <div class="mt-2">
-                            <textarea id="job-description" name="job_description" rows="3"
-                                class="h-48 block w-full rounded-md bg-gray-100 px-3 py-2 text-base text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:outline-none sm:text-sm"
-                                placeholder="Job Description"></textarea>
-                        </div>
+                        <textarea id="job-description" name="job_description" rows="3"
+                            class="h-48 block w-full rounded-md bg-gray-100 px-3 py-2 text-base text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:outline-none sm:text-sm"
+                            placeholder="Job Description"></textarea>
                         <x-form-error name="job_description" />
 
-                    </div>
+                    </x-form-field>
                 </div>
             </div>
 
@@ -48,10 +46,7 @@
                 <button type="button" class="text-sm font-semibold text-gray-700 hover:text-gray-900">
                     Cancel
                 </button>
-                <button type="submit"
-                    class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    Save
-                </button>
+                <x-form-button> Create </x-form-button>
             </div>
         </div>
     </form>
