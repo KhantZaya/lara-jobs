@@ -113,10 +113,10 @@ class JobController extends Controller
         return redirect('/jobs/' . $job->id);
     }
 
-    public function edit($id)
+    public function edit(Job $job)
     {
 
-        $job = Job::find($id);
+       // $job = Job::find($id);
 
         // ::: Another Option :::
         // if (Auth::user()->can('edit-job', $job)) {
@@ -130,8 +130,8 @@ class JobController extends Controller
        if (!$job) {
             abort(404);
         }
-
-        Gate::authorize('edit-job', $job);
+        
+        // Gate::authorize('edit-job', $job);
 
         return view('job.edit', ['job' => $job]);
     }

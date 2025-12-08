@@ -12,6 +12,5 @@
     @can('edit-job', $job)
         <x-button href="/jobs/{{ $job->id }}/edit" class="">Edit</x-button>
     @endcan
-            <x-button href="/jobs/{{ $job->id }}/edit" class="">Edit</x-button>
 
 </x-layout>
