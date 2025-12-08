@@ -9,6 +9,9 @@
     <p class="my-4 text-lg text-body">{{ $job->salary }}</p>
     <p class="mb-4 text-lg font-normal text-body"> {{ $job->job_description }}</p>
 
+    @can('edit-job', $job)
+        <x-button href="/jobs/{{ $job->id }}/edit" class="">Edit</x-button>
+    @endcan
+            <x-button href="/jobs/{{ $job->id }}/edit" class="">Edit</x-button>
 
-    <x-button href="/jobs/{{ $job->id }}/edit" class="">Edit</x-button>
 </x-layout>

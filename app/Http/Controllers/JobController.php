@@ -61,6 +61,10 @@ class JobController extends Controller
 
     public function create()
     {
+        if (Auth::guest()) {
+            return redirect('login');
+        }
+
         return view('job.create');
     }
 
@@ -111,17 +115,23 @@ class JobController extends Controller
 
     public function edit($id)
     {
-        // if (Auth::guest()) {
-        //     return redirect('/login');
-        // }
 
         $job = Job::find($id);
 
-        Gate::authorize('edit-job', $job);
+        // ::: Another Option :::
+        // if (Auth::user()->can('edit-job', $job)) {
+        //     dd('failure');
+        // }
 
-        if (!$job) {
+        // ::: Another Option :::
+        // if (Auth::guest()) {
+        //     return redirect('/login');
+        // }
+       if (!$job) {
             abort(404);
         }
+
+        Gate::authorize('edit-job', $job);
 
         return view('job.edit', ['job' => $job]);
     }
