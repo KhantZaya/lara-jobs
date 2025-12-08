@@ -22,7 +22,7 @@ class JobFactory extends Factory
             'title' => fake()->jobTitle(),
            'salary' => rand(50000, 150000),
            'employer_id' => Employer::factory(),
-            'job_description' => $this->faker->sentence(10),
+            'job_description' => $this->faker->sentence(100),
         ];
     }
 }

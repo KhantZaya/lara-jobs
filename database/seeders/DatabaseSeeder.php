@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call([JobSeeder::class, TagSeeder::class, JobTagSeeder::class, EmployerSeeder::class]);
-
+// php artisan migrate:fresh --seed
         User::factory()->create([
             'first_name' => 'Test',
             'last_name' => 'User',

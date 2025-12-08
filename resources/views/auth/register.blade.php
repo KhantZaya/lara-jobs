@@ -40,7 +40,7 @@
                         <x-form-error name="password" />
                     </x-form-field>
 
-                    <!-- Password -->
+                    <!-- Password --> 
                     <x-form-field>
                         <x-form-label for="password_confirmation">Confirm Password</x-form-label>
                         <x-form-input id="password_confirmation" name="password_confirmation" type="password"  />

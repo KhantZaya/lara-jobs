@@ -9,35 +9,35 @@ use Illuminate\Validation\ValidationException;
 class SessionController extends Controller
 {
     //
-    public function create () {
+    public function create()
+    {
         return view('auth.login');
     }
 
-    public function store () {
+    public function store()
+    {
         //validate
         $attributes = request()->validate([
             'email' => ['required', 'email'],
-            'password' => ['required'] 
+            'password' => ['required'],
         ]);
         // attemp to login
         $result = Auth::attempt($attributes);
 
         if ($result) {
-            dd('success');
+            // regenerate the session token
+            request()->session()->regenerate();
+
+            return redirect('/jobs');
         } else {
             throw ValidationException::withMessages(['email' => 'Sorry: Invalid Credential']);
         }
-
-        // regenerate the session token
-        request()->session()->regenerate();
-
-        return redirect('/jobs');
     }
 
-    public function destroy () {
-
+    public function destroy()
+    {
         Auth::logout();
-        
+
         return redirect('/');
     }
 }
